@@ -21,6 +21,8 @@ const DetallePartido = () => {
 
     const estadisticas = partido.estadisticas;
 
+    const getTeamImage = (teamName) => `/img/selecciones/${teamName.toLowerCase().replace(/\s+/g, "_")}.png`;
+
     // Validar si las estadísticas están disponibles
     if (!estadisticas) {
         return <Typography variant="h6">Estadísticas no disponibles para este partido</Typography>;
@@ -36,10 +38,38 @@ const DetallePartido = () => {
     };
 
     return (
-        <Box padding={5}>
+        <Box padding={5} 
+        sx={{ width: "100%", margin: 5 }}>
             {/* Información del partido */}
             <Typography variant="h4" gutterBottom>Detalles del Partido</Typography>
-            <Typography variant="h5">{`${partido.equipo1} ${partido.resultado} ${partido.equipo2}`}</Typography>
+            <Grid container alignItems="center" justifyContent="space-between" marginBottom={2}>
+                {/* Imagen equipo 1 */}
+                <Grid item xs={4}>
+                    <CardMedia
+                        component="img"
+                        height="60"
+                        image={getTeamImage(partido.equipo1)}
+                        alt={partido.equipo1}
+                        sx={{ objectFit: "contain" }}
+                    />
+                </Grid>
+
+                <Grid item xs={4} textAlign="center">
+                    <Typography variant="h5">{`${partido.equipo1} ${partido.resultado} ${partido.equipo2}`}</Typography>
+                </Grid>
+
+                {/* Imagen equipo 2 */}
+                <Grid item xs={4}>
+                    <CardMedia
+                        component="img"
+                        height="60"
+                        image={getTeamImage(partido.equipo2)}
+                        alt={partido.equipo2}
+                        sx={{ objectFit: "contain" }}
+                    />
+                </Grid>
+            </Grid>
+
             <Typography variant="body1">Fase: {partido.fase}</Typography>
             <Typography variant="body1">Fecha: {partido.fecha}</Typography>
             <Typography variant="body1">Estadio: {partido.estadio}</Typography>
@@ -52,7 +82,7 @@ const DetallePartido = () => {
                         {partido.goleadores.map((goleador, index) => {
                             const playerData = findPlayerData(goleador);
                             return (
-                                <Grid item xs={6} sm={12} key={index}>
+                                <Grid item xs={6} sm={4} key={index}>
                                     <Card onClick={() => handlePlayerClick(goleador)} sx={{ cursor: "pointer" }}>
                                         <CardMedia
                                             component="img"
@@ -98,15 +128,16 @@ const DetallePartido = () => {
             </Box>
 
             {/* Gráfico de estadísticas */}
-            <Box marginTop={4}>
-                <Typography variant="h6" gutterBottom>Gráfico de Estadísticas:</Typography>
-                <EstadisticasRadar
-                    estadisticasEquipo1={estadisticas.equipo1}
-                    estadisticasEquipo2={estadisticas.equipo2}
-                    equipo1={partido.equipo1}
-                    equipo2={partido.equipo2}
-                />
-            </Box>
+<Grid item xs={6} sx={{ display: "flex", justifyContent: "center" }}>
+    <Box sx={{ width: "500px", height: "500px" }}> {/* Ajusta el tamaño aquí */}
+        <EstadisticasRadar
+            estadisticasEquipo1={estadisticas.equipo1}
+            estadisticasEquipo2={estadisticas.equipo2}
+            equipo1={partido.equipo1}
+            equipo2={partido.equipo2}
+        />
+    </Box>
+</Grid>
 
             {/* Diálogo con estadísticas del jugador */}
             <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>

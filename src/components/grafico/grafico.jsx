@@ -16,8 +16,6 @@ export const EstadisticasRadar = ({ estadisticasEquipo1, estadisticasEquipo2, eq
         labels: [
             "Remates",
             "Remates a Puerta",
-            "Posesión",
-            "Pases",
             "Faltas",
             "Tarjetas Amarillas",
             "Corners",
@@ -28,8 +26,6 @@ export const EstadisticasRadar = ({ estadisticasEquipo1, estadisticasEquipo2, eq
                 data: [
                     estadisticasEquipo1.remates,
                     estadisticasEquipo1.remates_a_puerta,
-                    estadisticasEquipo1.posesion,
-                    estadisticasEquipo1.pases,
                     estadisticasEquipo1.faltas,
                     estadisticasEquipo1.tarjetas_amarillas,
                     estadisticasEquipo1.corners,
@@ -43,8 +39,6 @@ export const EstadisticasRadar = ({ estadisticasEquipo1, estadisticasEquipo2, eq
                 data: [
                     estadisticasEquipo2.remates,
                     estadisticasEquipo2.remates_a_puerta,
-                    estadisticasEquipo2.posesion,
-                    estadisticasEquipo2.pases,
                     estadisticasEquipo2.faltas,
                     estadisticasEquipo2.tarjetas_amarillas,
                     estadisticasEquipo2.corners,
@@ -57,13 +51,22 @@ export const EstadisticasRadar = ({ estadisticasEquipo1, estadisticasEquipo2, eq
     };
 
     const options = {
+        responsive: true,
+        maintainAspectRatio: true,
         scales: {
-            r: {
-                suggestedMin: 0,
-                suggestedMax: 100,
+            r: { // es el eje radial 
+                min: 0, // valor mínimo
+                max: 20, // valor máximo
+                ticks: {
+                    stepSize: 10, // Incrementos entre las líneas
+                },
+                grid: {
+                    color: "rgba(0, 0, 0, 0.2)", // Opcional: color de las líneas de la cuadrícula
+                },
             },
         },
     };
+
 
     return <Radar data={data} options={options} />;
 };

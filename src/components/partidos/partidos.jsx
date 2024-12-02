@@ -34,6 +34,22 @@ export const partidos = [
     fecha: "25/06/2024",
     estadio: "MetLife Stadium, East Rutherford",
     goleadores: ["Lautaro Martínez"],
+    estadisticas: {
+          equipo1: {
+              remates: 15,
+              remates_a_puerta: 6,
+              faltas: 10,
+              tarjetas_amarillas: 1,
+              corners: 4,
+          },
+          equipo2: {
+              remates: 8,
+              remates_a_puerta: 3,
+              faltas: 12,
+              tarjetas_amarillas: 2,
+              corners: 2,
+          },
+      },
   },
   {
     id: 3,
@@ -43,7 +59,23 @@ export const partidos = [
     fase: "De grupos",
     fecha: "29/06/2024",
     estadio: "Hard Rock Stadium, Miami",
-    goleadores: ["Lautaro Martínez"]
+    goleadores: ["Lautaro Martínez"],
+    estadisticas: {
+          equipo1: {
+              remates: 15,
+              remates_a_puerta: 6,
+              faltas: 10,
+              tarjetas_amarillas: 1,
+              corners: 4,
+          },
+          equipo2: {
+              remates: 8,
+              remates_a_puerta: 3,
+              faltas: 12,
+              tarjetas_amarillas: 2,
+              corners: 2,
+          },
+      },
   },
   {
     id: 4,
@@ -63,8 +95,24 @@ export const partidos = [
       { jugador: "Mena", resultado: "Fallo (atajado)" },
       { jugador: "Minda", resultado: "Fallo (atajado)" },
       { jugador: "Yeboah", resultado: "Acierto" },
-      { jugador: "J. Caicedo", resultado: "Acierto" }
-    ]
+      { jugador: "J. Caicedo", resultado: "Acierto" },
+    ],
+    estadisticas: {
+          equipo1: {
+              remates: 15,
+              remates_a_puerta: 6,
+              faltas: 10,
+              tarjetas_amarillas: 1,
+              corners: 4,
+          },
+          equipo2: {
+              remates: 8,
+              remates_a_puerta: 3,
+              faltas: 12,
+              tarjetas_amarillas: 2,
+              corners: 2,
+          },
+      },
   },
   {
     id: 5,
@@ -74,7 +122,23 @@ export const partidos = [
     fase: "Semifinales",
     fecha: "09/07/2024",
     estadio: "MetLife Stadium, East Rutherford",
-    goleadores: ["Julián Álvarez", "Lionel Messi"]
+    goleadores: ["Julián Álvarez", "Lionel Messi"],
+    estadisticas: {
+          equipo1: {
+              remates: 15,
+              remates_a_puerta: 6,
+              faltas: 10,
+              tarjetas_amarillas: 1,
+              corners: 4,
+          },
+          equipo2: {
+              remates: 8,
+              remates_a_puerta: 3,
+              faltas: 12,
+              tarjetas_amarillas: 2,
+              corners: 2,
+          },
+      },
   },
   {
     id: 6,
@@ -84,6 +148,22 @@ export const partidos = [
     fase: "Final",
     fecha: "14/07/2024",
     estadio: "Hard Rock Stadium, Miami",
-    goleadores: ["Lautaro Martínez"]
+    goleadores: ["Lautaro Martínez"],
+    estadisticas: {
+          equipo1: {
+              remates: 15,
+              remates_a_puerta: 6,
+              faltas: 10,
+              tarjetas_amarillas: 1,
+              corners: 4,
+          },
+          equipo2: {
+              remates: 8,
+              remates_a_puerta: 3,
+              faltas: 12,
+              tarjetas_amarillas: 2,
+              corners: 2,
+          },
+      },
   },
 ];
