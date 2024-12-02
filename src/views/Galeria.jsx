@@ -56,7 +56,7 @@ const Galeria = () => {
                             <Card>
                                 <CardMedia
                                     component="img"
-                                    height="300" // Ajusta la altura de la imagen en el modal
+                                    height="300" 
                                     image={selectedPlayer.foto}
                                     alt={selectedPlayer.nombre}
                                     sx={{ objectFit: "cover", objectPosition: "top" }}

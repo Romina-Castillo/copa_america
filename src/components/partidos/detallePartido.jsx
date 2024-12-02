@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Typography, Card, CardMedia, CardContent, Grid } from "@mui/material";
+import { Box, Typography, Card, CardMedia, CardContent, Grid, Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
 import { partidos } from "./partidos";
 import { jugadoresArgentina } from "../jugadores/Argentina";
 import { EstadisticasRadar } from "../grafico/grafico";
@@ -9,6 +10,9 @@ const DetallePartido = () => {
     const partidoId = parseInt(id, 10); // Validación de ID
     const partido = partidos.find((p) => p.id === partidoId);
     const findPlayerData = (nombre) => jugadoresArgentina.find((jugador) => jugador.nombre === nombre);
+
+    const [selectedPlayer, setSelectedPlayer] = useState(null); // Estado para el jugador seleccionado
+    const [dialogOpen, setDialogOpen] = useState(false); // Estado para abrir/cerrar el diálogo
 
     // Validar si el partido existe
     if (isNaN(partidoId) || !partido) {
@@ -21,6 +25,15 @@ const DetallePartido = () => {
     if (!estadisticas) {
         return <Typography variant="h6">Estadísticas no disponibles para este partido</Typography>;
     }
+
+    // Abrir diálogo con estadísticas del jugador
+    const handlePlayerClick = (nombre) => {
+        const player = findPlayerData(nombre);
+        if (player) {
+            setSelectedPlayer(player);
+            setDialogOpen(true);
+        }
+    };
 
     return (
         <Box padding={5}>
@@ -40,7 +53,7 @@ const DetallePartido = () => {
                             const playerData = findPlayerData(goleador);
                             return (
                                 <Grid item xs={6} sm={12} key={index}>
-                                    <Card>
+                                    <Card onClick={() => handlePlayerClick(goleador)} sx={{ cursor: "pointer" }}>
                                         <CardMedia
                                             component="img"
                                             height="200"
@@ -94,6 +107,29 @@ const DetallePartido = () => {
                     equipo2={partido.equipo2}
                 />
             </Box>
+
+            {/* Diálogo con estadísticas del jugador */}
+            <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
+                <DialogTitle>Estadísticas de {selectedPlayer?.nombre}</DialogTitle>
+                <DialogContent>
+                    {selectedPlayer && (
+                        <>
+                            <Typography variant="body1">Posición: {selectedPlayer.posicion}</Typography>
+                            <Typography variant="body1">Edad: {selectedPlayer.edad}</Typography>
+                            <Typography variant="body1">Estatura: {selectedPlayer.estatura} cm</Typography>
+                            <Typography variant="body1">Peso: {selectedPlayer.peso} kg</Typography>
+                            <Typography variant="body1">Partidos jugados: {selectedPlayer.partidos}</Typography>
+                            <Typography variant="body1">Goles: {selectedPlayer.goles}</Typography>
+                            <Typography variant="body1">Asistencias: {selectedPlayer.asistencias}</Typography>
+                            <Typography variant="body1">Tarjetas Amarillas: {selectedPlayer.tarjetasAmarillas}</Typography>
+                            <Typography variant="body1">Tarjetas Rojas: {selectedPlayer.tarjetasRojas}</Typography>
+                        </>
+                    )}
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => setDialogOpen(false)}>Cerrar</Button>
+                </DialogActions>
+            </Dialog>
         </Box>
     );
 };

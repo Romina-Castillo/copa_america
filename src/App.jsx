@@ -5,6 +5,7 @@ import Home from "./views/Home.jsx";
 import CopaAmerica from "./views/CopaAmerica.jsx";
 import Galeria from "./views/Galeria.jsx";
 import DetallePartido from "./components/partidos/detallePartido.jsx";
+import ScrollToTop from "./components/scrollToTop.jsx";
 
 const navArrayLinks = [
   {
@@ -25,6 +26,7 @@ function App() {
   return (
     <Router>
       <Navbar navArrayLinks={navArrayLinks} />
+      <ScrollToTop />
       <Container sx={{ mt: 5 }}>
         <Routes>
           <Route path="/" element={<Home />} />

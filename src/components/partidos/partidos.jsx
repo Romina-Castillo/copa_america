@@ -12,7 +12,6 @@ export const partidos = [
           equipo1: {
               remates: 15,
               remates_a_puerta: 6,
-              posesion: 65,
               faltas: 10,
               tarjetas_amarillas: 1,
               corners: 4,
@@ -20,7 +19,6 @@ export const partidos = [
           equipo2: {
               remates: 8,
               remates_a_puerta: 3,
-              posesion: 35,
               faltas: 12,
               tarjetas_amarillas: 2,
               corners: 2,
