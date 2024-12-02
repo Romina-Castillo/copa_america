@@ -15,3 +15,6 @@ npm run dev
 
 en otra terminal 
 npm run dev
+
+Graficos en front
+npm install chart.js react-chartjs-2 

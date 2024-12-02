@@ -1,14 +1,31 @@
 export const partidos = [
   {
-    id: 1,
-    equipo1: "Argentina",
-    equipo2: "Canadá",
-    resultado: "1 - 0",
-    fase: "De grupos",
-    fecha: "20/06/2024",
-    estadio: "Mercedes-Benz Stadium, Atlanta",
-    titulares: ["Ángel Di María", "Lionel Messi", "Emiliano Martínez"],
-    goleadores: ["Julián Álvarez", "Lautaro Martínez"],
+      id: 1,
+      equipo1: "Argentina",
+      equipo2: "Canadá",
+      resultado: "1 - 0",
+      fase: "De grupos",
+      fecha: "20/06/2024",
+      estadio: "Mercedes-Benz Stadium, Atlanta",
+      goleadores: ["Julián Álvarez"],
+      estadisticas: {
+          equipo1: {
+              remates: 15,
+              remates_a_puerta: 6,
+              posesion: 65,
+              faltas: 10,
+              tarjetas_amarillas: 1,
+              corners: 4,
+          },
+          equipo2: {
+              remates: 8,
+              remates_a_puerta: 3,
+              posesion: 35,
+              faltas: 12,
+              tarjetas_amarillas: 2,
+              corners: 2,
+          },
+      },
   },
   {
     id: 2,
@@ -18,7 +35,6 @@ export const partidos = [
     fase: "De grupos",
     fecha: "25/06/2024",
     estadio: "MetLife Stadium, East Rutherford",
-    titulares: ["Ángel Di María", "Lionel Messi", "Emiliano Martínez"],
     goleadores: ["Lautaro Martínez"],
   },
   {
@@ -29,7 +45,6 @@ export const partidos = [
     fase: "De grupos",
     fecha: "29/06/2024",
     estadio: "Hard Rock Stadium, Miami",
-    titulares: ["Ángel Di María", "Lionel Messi", "Emiliano Martínez"],
     goleadores: ["Lautaro Martínez"]
   },
   {
@@ -40,7 +55,6 @@ export const partidos = [
     fase: "Cuartos de final",
     fecha: "04/07/2024",
     estadio: "NRG Stadium, Houston",
-    titulares: ["Ángel Di María", "Lionel Messi", "Emiliano Martínez"],
     goleadores: ["Lisandro Martínez"],
     penales: [
       { jugador: "Messi", resultado: "Fallo (travesaño)" },
@@ -62,7 +76,6 @@ export const partidos = [
     fase: "Semifinales",
     fecha: "09/07/2024",
     estadio: "MetLife Stadium, East Rutherford",
-    titulares: ["Ángel Di María", "Lionel Messi", "Emiliano Martínez"],
     goleadores: ["Julián Álvarez", "Lionel Messi"]
   },
   {
@@ -73,7 +86,6 @@ export const partidos = [
     fase: "Final",
     fecha: "14/07/2024",
     estadio: "Hard Rock Stadium, Miami",
-    titulares: ["Ángel Di María", "Lionel Messi", "Emiliano Martínez"],
     goleadores: ["Lautaro Martínez"]
   },
 ];

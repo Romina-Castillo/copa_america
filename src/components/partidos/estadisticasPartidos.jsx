@@ -1,0 +1,28 @@
+export const estadisticasPartidos = [
+    {
+        id: 1,
+        remates: 12,
+        remates_a_puerta: 5,
+        posesion: "60%",
+        pases: 482,
+        precision_pases: "85%",
+        faltas: 15,
+        tarjetas_amarillas: 2,
+        tarjetas_rojas: 0,
+        corners: 6,
+        fueras_de_juego: 3,
+    },
+    {
+        id: 2,
+        remates: 8,
+        remates_a_puerta: 3,
+        posesion: "45%",
+        pases: 320,
+        precision_pases: "78%",
+        faltas: 10,
+        tarjetas_amarillas: 1,
+        tarjetas_rojas: 0,
+        corners: 4,
+        fueras_de_juego: 1,
+    },
+];
